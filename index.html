@@ -1,0 +1,1831 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2720 Club</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --blue: #1a6fb5;
+        --blue-light: #3b9ede;
+        --blue-dark: #0d3f6b;
+        --cream: #f5f0e8;
+        --white: #ffffff;
+        --text: #1a1a2e;
+        --gray: #6b7280;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Source Sans 3", sans-serif;
+        background: var(--cream);
+        color: var(--text);
+        overflow-x: hidden;
+      }
+
+      /* HERO */
+      .hero {
+        background: linear-gradient(
+          160deg,
+          var(--blue-dark) 0%,
+          var(--blue) 60%,
+          var(--blue-light) 100%
+        );
+        color: white;
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at 80% 20%,
+          rgba(255, 255, 255, 0.08) 0%,
+          transparent 60%
+        );
+        pointer-events: none;
+      }
+
+      /* decorative circles */
+      .hero::after {
+        content: "2720";
+        position: absolute;
+        right: -60px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: "Playfair Display", serif;
+        font-size: 28vw;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.04);
+        line-height: 1;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 3rem;
+        position: relative;
+        z-index: 10;
+      }
+
+      .nav-logo {
+        font-family: "Playfair Display", serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: white;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2.5rem;
+      }
+
+      nav a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        transition: color 0.2s;
+      }
+
+      nav a:hover {
+        color: white;
+      }
+
+      .hero-center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 4rem 2rem;
+        position: relative;
+        z-index: 10;
+      }
+
+      .badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding: 0.4rem 1.2rem;
+        border-radius: 100px;
+        margin-bottom: 1.5rem;
+        animation: fadeUp 0.8s ease both;
+      }
+
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(5rem, 18vw, 14rem);
+        font-weight: 900;
+        line-height: 0.9;
+        margin-bottom: 1rem;
+        animation: fadeUp 0.8s 0.1s ease both;
+      }
+
+      .hero-sub {
+        font-size: 1.2rem;
+        font-weight: 300;
+        letter-spacing: 0.5em;
+        text-transform: uppercase;
+        opacity: 0.75;
+        margin-bottom: 2.5rem;
+        animation: fadeUp 0.8s 0.2s ease both;
+      }
+
+      .hero-cta {
+        display: inline-block;
+        background: white;
+        color: var(--blue-dark);
+        font-weight: 700;
+        font-size: 0.85rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 0.9rem 2.5rem;
+        border-radius: 100px;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        animation: fadeUp 0.8s 0.3s ease both;
+      }
+
+      .hero-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero-bottom {
+        padding: 2rem 3rem;
+        text-align: center;
+        font-size: 0.8rem;
+        opacity: 0.5;
+        letter-spacing: 0.05em;
+        position: relative;
+        z-index: 10;
+      }
+
+      /* EVENTS SECTION */
+      .section {
+        padding: 6rem 2rem;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .section-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--blue);
+        margin-bottom: 0.75rem;
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 3rem;
+      }
+
+      .events-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .event-card {
+        background: white;
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+        border-left: 4px solid var(--blue);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .event-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, var(--blue-light), var(--blue));
+        opacity: 0.06;
+        border-radius: 0 16px 0 80px;
+      }
+
+      .event-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(26, 111, 181, 0.15);
+      }
+
+      .event-icon {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+      }
+
+      .event-card h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .event-schedule {
+        display: inline-block;
+        background: var(--blue);
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        padding: 0.3rem 0.8rem;
+        border-radius: 100px;
+        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+      }
+
+      .event-card p {
+        color: var(--gray);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      /* PHOTO SECTION */
+      .photos-wrap {
+        background: white;
+      }
+
+      .photos-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 6rem 2rem;
+      }
+
+      .photos-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .photos-grid img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+        display: block;
+      }
+
+      .photo-main {
+        height: 420px;
+      }
+      .photo-side {
+        height: 420px;
+      }
+
+      /* CONTACT */
+      .contact-section {
+        background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+        color: white;
+        text-align: center;
+        padding: 6rem 2rem;
+      }
+
+      .contact-section .section-label {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .contact-section .section-title {
+        color: white;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-section p {
+        font-size: 1.1rem;
+        opacity: 0.75;
+        margin-bottom: 2rem;
+      }
+
+      .contact-email {
+        display: inline-block;
+        background: white;
+        color: var(--blue-dark);
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+        padding: 1rem 3rem;
+        border-radius: 100px;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .contact-email:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      /* LOCATION */
+      .location-bar {
+        background: var(--blue-dark);
+        color: rgba(255, 255, 255, 0.6);
+        text-align: center;
+        padding: 1.5rem 2rem;
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
+      }
+
+      .location-bar strong {
+        color: white;
+      }
+      /* FORM  */
+      .paper {
+        font-family: "Source Sans 3", sans-serif;
+        margin: 40px auto;
+        background: #fff;
+        padding: 30px 40px;
+        color: #000;
+        width: 750px;
+        background: white;
+      }
+
+      .center {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .title {
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+
+      .section-title {
+        font-weight: bold;
+        font-size: 13px;
+        margin-bottom: 8px;
+      }
+
+      .line-row {
+        display: block;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+
+      .right-label {
+        margin-left: 10px;
+      }
+
+      .input {
+        border: none;
+        border-bottom: 1px solid #000;
+        background: transparent;
+        height: 16px;
+        font-size: 16px;
+        font-family: "Source Sans 3", sans-serif;
+        outline: none;
+      }
+
+      .long {
+        flex: 1;
+        margin: 0 5px;
+      }
+
+      .short {
+        width: 120px;
+        margin-left: 5px;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.4;
+        margin-bottom: 8px;
+      }
+
+      .signature {
+        margin-top: 15px;
+      }
+
+      .dues {
+        display: flex;
+        justify-content: space-between;
+        font-size: 16px;
+      }
+
+      .small {
+        font-size: 11px;
+        margin-top: 10px;
+      }
+      #downloadBtn {
+        background: var(--blue);
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 100px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      #downloadBtn:hover {
+        background: var(--blue-dark);
+      }
+
+      .no-print {
+        display: inline-block;
+      }
+
+      @media print {
+        .no-print {
+          display: none !important;
+        }
+      }
+      .business-section {
+        font-family: "Source Sans 3", sans-serif;
+        font-size: 16px;
+        color: #000;
+        max-width: 700px;
+        margin: 20px auto;
+      }
+
+      /* Title */
+      .business-title {
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
+      }
+
+      /* Text */
+      .business-text {
+        display: flex;
+        align-items: flex-start;
+        line-height: 1.4;
+      }
+
+      /* Bullet square */
+      .bullet {
+        margin-right: 6px;
+        font-size: 10px;
+        margin-top: 2px;
+      }
+      /* FOOTER */
+      footer {
+        background: #0a1628;
+        color: rgba(255, 255, 255, 0.4);
+        text-align: center;
+        padding: 1.5rem;
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+      }
+
+      /* ANIMATIONS */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 640px) {
+        nav ul {
+          display: none;
+        }
+        nav {
+          padding: 1.2rem 1.5rem;
+        }
+        .hero::after {
+          font-size: 50vw;
+        }
+        .photos-grid {
+          grid-template-columns: 1fr;
+        }
+        .photo-side {
+          height: 220px;
+        }
+        .section {
+          padding: 4rem 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HERO -->
+    <section class="hero">
+      <nav>
+        <span class="nav-logo">2720 Club</span>
+        <ul>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#meetings">Meetings</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#form">Form</a></li>
+        </ul>
+      </nav>
+
+      <div class="hero-center">
+        <span class="badge">Welcome to our community</span>
+        <h1>2720</h1>
+        <p class="hero-sub">Club</p>
+        <a href="#events" class="hero-cta">See What's On</a>
+      </div>
+
+      <div class="hero-bottom">Scroll to explore ↓</div>
+    </section>
+
+    <!-- EVENTS -->
+    <section id="events">
+      <div class="section">
+        <p class="section-label reveal">Gatherings & Events</p>
+        <h2 class="section-title reveal">Come Together</h2>
+
+        <div class="events-grid">
+          <div class="event-card reveal">
+            <div class="event-icon">🍽️</div>
+            <span class="event-schedule">Weekly</span>
+            <h3>Wednesday Lunch</h3>
+            <p>
+              Join us every Wednesday for a casual midweek lunch. Great food,
+              great company.
+            </p>
+          </div>
+
+          <div class="event-card reveal">
+            <div class="event-icon">🔥</div>
+            <span class="event-schedule">Regular Meeting</span>
+            <h3>Fireside Meeting</h3>
+            <p>
+              Gather around for our cozy fireside meetings — a time for
+              conversation, connection, and community.
+            </p>
+          </div>
+
+          <div class="event-card reveal">
+            <div class="event-icon">🍖</div>
+            <span class="event-schedule">1st Saturday of Every Month</span>
+            <h3>Monthly Cookout</h3>
+            <p>
+              Mark your calendars! Every first Saturday of the month we fire up
+              the grill for our beloved community cookout.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEETINGS -->
+    <div id="meetings" style="background: #f0f4f8">
+      <div class="section">
+        <p class="section-label reveal">Alcoholics Anonymous</p>
+        <h2 class="section-title reveal">Weekly Meeting Schedule</h2>
+
+        <div class="reveal" style="overflow-x: auto">
+          <table
+            style="
+              width: 100%;
+              border-collapse: collapse;
+              font-size: 0.92rem;
+              background: white;
+              border-radius: 16px;
+              overflow: hidden;
+              box-shadow: 0 2px 20px rgba(0, 0, 0, 0.07);
+            "
+          >
+            <thead>
+              <tr
+                style="
+                  background: linear-gradient(
+                    90deg,
+                    var(--blue-dark),
+                    var(--blue)
+                  );
+                  color: white;
+                "
+              >
+                <th
+                  style="
+                    padding: 1rem 1.2rem;
+                    text-align: left;
+                    font-family: &quot;Playfair Display&quot;, serif;
+                    font-size: 1rem;
+                    font-weight: 700;
+                  "
+                >
+                  Day
+                </th>
+                <th
+                  style="
+                    padding: 1rem 1.2rem;
+                    text-align: left;
+                    font-weight: 700;
+                  "
+                >
+                  Time
+                </th>
+                <th
+                  style="
+                    padding: 1rem 1.2rem;
+                    text-align: left;
+                    font-weight: 700;
+                  "
+                >
+                  Group Name
+                </th>
+                <th
+                  style="
+                    padding: 1rem 1.2rem;
+                    text-align: left;
+                    font-weight: 700;
+                  "
+                >
+                  Format
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- SUNDAY -->
+              <tr style="background: #e8f0fb">
+                <td
+                  rowspan="2"
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    font-weight: 700;
+                    color: var(--blue-dark);
+                    vertical-align: top;
+                    border-bottom: 2px solid #d0dff5;
+                  "
+                >
+                  Sunday
+                </td>
+                <td style="padding: 0.85rem 1.2rem; white-space: nowrap">
+                  12:00 PM
+                </td>
+                <td style="padding: 0.85rem 1.2rem">
+                  Gratitude In Action Meeting
+                </td>
+                <td style="padding: 0.85rem 1.2rem">
+                  <span
+                    style="
+                      background: #dbeafe;
+                      color: #1e40af;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Closed / Discussion</span
+                  >
+                </td>
+              </tr>
+              <tr style="background: #e8f0fb">
+                <td
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    border-bottom: 2px solid #d0dff5;
+                    white-space: nowrap;
+                  "
+                >
+                  7:00 PM
+                </td>
+                <td
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    border-bottom: 2px solid #d0dff5;
+                  "
+                >
+                  Experience, Strength & Hope Meeting
+                  <span style="color: var(--gray); font-size: 0.83rem"
+                    >(AA Recovery Gp.)</span
+                  >
+                </td>
+                <td
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    border-bottom: 2px solid #d0dff5;
+                  "
+                >
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Speaker</span
+                  >
+                </td>
+              </tr>
+              <!-- MONDAY -->
+              <tr>
+                <td
+                  rowspan="5"
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    font-weight: 700;
+                    color: var(--blue-dark);
+                    vertical-align: top;
+                    border-bottom: 2px solid #e5e7eb;
+                  "
+                >
+                  Monday
+                </td>
+                <td style="padding: 0.85rem 1.2rem; white-space: nowrap">
+                  7:00 AM
+                </td>
+                <td style="padding: 0.85rem 1.2rem">Early Bird Group</td>
+                <td style="padding: 0.85rem 1.2rem">
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Discussion</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 0.85rem 1.2rem; white-space: nowrap">
+                  12:00 PM
+                </td>
+                <td style="padding: 0.85rem 1.2rem">Plug In-The-Jug Group</td>
+                <td style="padding: 0.85rem 1.2rem">
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Discussion</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 0.85rem 1.2rem; white-space: nowrap">
+                  5:30 PM
+                </td>
+                <td style="padding: 0.85rem 1.2rem">
+                  Happy Hour Meeting
+                  <span style="color: var(--gray); font-size: 0.83rem"
+                    >(AA Recovery Gp.)</span
+                  >
+                </td>
+                <td style="padding: 0.85rem 1.2rem">
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Discussion</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 0.85rem 1.2rem; white-space: nowrap">
+                  7:00 PM
+                </td>
+                <td style="padding: 0.85rem 1.2rem">Mon. Night Men's Group</td>
+                <td style="padding: 0.85rem 1.2rem">
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Discussion</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    border-bottom: 2px solid #e5e7eb;
+                    white-space: nowrap;
+                  "
+                >
+                  7:00 PM
+                </td>
+                <td
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    border-bottom: 2px solid #e5e7eb;
+                  "
+                >
+                  Mon. Night Ladies Group
+                </td>
+                <td
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    border-bottom: 2px solid #e5e7eb;
+                  "
+                >
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Discussion</span
+                  >
+                </td>
+              </tr>
+              <!-- TUESDAY -->
+              <tr style="background: #f9fafb">
+                <td
+                  rowspan="4"
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    font-weight: 700;
+                    color: var(--blue-dark);
+                    vertical-align: top;
+                    border-bottom: 2px solid #e5e7eb;
+                  "
+                >
+                  Tuesday
+                </td>
+                <td style="padding: 0.85rem 1.2rem; white-space: nowrap">
+                  7:00 AM
+                </td>
+                <td style="padding: 0.85rem 1.2rem">Early Bird Group</td>
+                <td style="padding: 0.85rem 1.2rem">
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Discussion</span
+                  >
+                </td>
+              </tr>
+              <tr style="background: #f9fafb">
+                <td style="padding: 0.85rem 1.2rem; white-space: nowrap">
+                  12:00 PM
+                </td>
+                <td style="padding: 0.85rem 1.2rem">Plug In-The-Jug Group</td>
+                <td style="padding: 0.85rem 1.2rem">
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Discussion</span
+                  >
+                </td>
+              </tr>
+              <tr style="background: #f9fafb">
+                <td style="padding: 0.85rem 1.2rem; white-space: nowrap">
+                  5:30 PM
+                </td>
+                <td style="padding: 0.85rem 1.2rem">
+                  Happy Hour Meeting
+                  <span style="color: var(--gray); font-size: 0.83rem"
+                    >(AA Recovery Gp.)</span
+                  >
+                </td>
+                <td style="padding: 0.85rem 1.2rem">
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Discussion</span
+                  >
+                </td>
+              </tr>
+              <tr style="background: #f9fafb">
+                <td
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    border-bottom: 2px solid #e5e7eb;
+                    white-space: nowrap;
+                  "
+                >
+                  7:00 PM
+                </td>
+                <td
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    border-bottom: 2px solid #e5e7eb;
+                  "
+                >
+                  Big Book Study Group
+                </td>
+                <td
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    border-bottom: 2px solid #e5e7eb;
+                  "
+                >
+                  <span
+                    style="
+                      background: #fef9c3;
+                      color: #854d0e;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Book Study</span
+                  >
+                </td>
+              </tr>
+              <!-- WEDNESDAY -->
+              <tr>
+                <td
+                  rowspan="4"
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    font-weight: 700;
+                    color: var(--blue-dark);
+                    vertical-align: top;
+                    border-bottom: 2px solid #e5e7eb;
+                  "
+                >
+                  Wednesday
+                </td>
+                <td style="padding: 0.85rem 1.2rem; white-space: nowrap">
+                  7:00 AM
+                </td>
+                <td style="padding: 0.85rem 1.2rem">Early Bird Group</td>
+                <td style="padding: 0.85rem 1.2rem">
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Discussion</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 0.85rem 1.2rem; white-space: nowrap">
+                  12:00 PM
+                </td>
+                <td style="padding: 0.85rem 1.2rem">Plug In-The-Jug Group</td>
+                <td style="padding: 0.85rem 1.2rem">
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Discussion</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 0.85rem 1.2rem; white-space: nowrap">
+                  5:30 PM
+                </td>
+                <td style="padding: 0.85rem 1.2rem">
+                  Happy Hour Meeting
+                  <span style="color: var(--gray); font-size: 0.83rem"
+                    >(AA Recovery Gp.)</span
+                  >
+                </td>
+                <td style="padding: 0.85rem 1.2rem">
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Discussion</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    border-bottom: 2px solid #e5e7eb;
+                    white-space: nowrap;
+                  "
+                >
+                  7:00 PM
+                </td>
+                <td
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    border-bottom: 2px solid #e5e7eb;
+                  "
+                >
+                  12 & 12 Book Study Group
+                </td>
+                <td
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    border-bottom: 2px solid #e5e7eb;
+                  "
+                >
+                  <span
+                    style="
+                      background: #fef9c3;
+                      color: #854d0e;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Book Study</span
+                  >
+                </td>
+              </tr>
+              <!-- THURSDAY -->
+              <tr style="background: #f9fafb">
+                <td
+                  rowspan="4"
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    font-weight: 700;
+                    color: var(--blue-dark);
+                    vertical-align: top;
+                    border-bottom: 2px solid #e5e7eb;
+                  "
+                >
+                  Thursday
+                </td>
+                <td style="padding: 0.85rem 1.2rem; white-space: nowrap">
+                  7:00 AM
+                </td>
+                <td style="padding: 0.85rem 1.2rem">Early Bird Group</td>
+                <td style="padding: 0.85rem 1.2rem">
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Discussion</span
+                  >
+                </td>
+              </tr>
+              <tr style="background: #f9fafb">
+                <td style="padding: 0.85rem 1.2rem; white-space: nowrap">
+                  12:00 PM
+                </td>
+                <td style="padding: 0.85rem 1.2rem">Plug In-The-Jug Group</td>
+                <td style="padding: 0.85rem 1.2rem">
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Discussion</span
+                  >
+                </td>
+              </tr>
+              <tr style="background: #f9fafb">
+                <td style="padding: 0.85rem 1.2rem; white-space: nowrap">
+                  5:30 PM
+                </td>
+                <td style="padding: 0.85rem 1.2rem">
+                  Happy Hour Meeting
+                  <span style="color: var(--gray); font-size: 0.83rem"
+                    >(AA Recovery Gp.)</span
+                  >
+                </td>
+                <td style="padding: 0.85rem 1.2rem">
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Discussion</span
+                  >
+                </td>
+              </tr>
+              <tr style="background: #f9fafb">
+                <td
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    border-bottom: 2px solid #e5e7eb;
+                    white-space: nowrap;
+                  "
+                >
+                  8:00 PM
+                </td>
+                <td
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    border-bottom: 2px solid #e5e7eb;
+                  "
+                >
+                  Bottom's Up Meeting
+                  <span style="color: var(--gray); font-size: 0.83rem"
+                    >(AA Recovery Gp.)</span
+                  >
+                </td>
+                <td
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    border-bottom: 2px solid #e5e7eb;
+                  "
+                >
+                  <span
+                    style="
+                      background: #dbeafe;
+                      color: #1e40af;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Closed / Discussion</span
+                  >
+                </td>
+              </tr>
+              <!-- FRIDAY -->
+              <tr>
+                <td
+                  rowspan="3"
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    font-weight: 700;
+                    color: var(--blue-dark);
+                    vertical-align: top;
+                    border-bottom: 2px solid #e5e7eb;
+                  "
+                >
+                  Friday
+                </td>
+                <td style="padding: 0.85rem 1.2rem; white-space: nowrap">
+                  7:00 AM
+                </td>
+                <td style="padding: 0.85rem 1.2rem">Early Bird Group</td>
+                <td style="padding: 0.85rem 1.2rem">
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Discussion</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 0.85rem 1.2rem; white-space: nowrap">
+                  12:00 PM
+                </td>
+                <td style="padding: 0.85rem 1.2rem">Plug In-The-Jug Group</td>
+                <td style="padding: 0.85rem 1.2rem">
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Discussion</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    border-bottom: 2px solid #e5e7eb;
+                    white-space: nowrap;
+                  "
+                >
+                  5:30 PM
+                </td>
+                <td
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    border-bottom: 2px solid #e5e7eb;
+                  "
+                >
+                  Happy Hour Meeting
+                  <span style="color: var(--gray); font-size: 0.83rem"
+                    >(AA Recovery Gp.)</span
+                  >
+                </td>
+                <td
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    border-bottom: 2px solid #e5e7eb;
+                  "
+                >
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Discussion</span
+                  >
+                </td>
+              </tr>
+              <!-- SATURDAY -->
+              <tr style="background: #e8f0fb">
+                <td
+                  rowspan="2"
+                  style="
+                    padding: 0.85rem 1.2rem;
+                    font-weight: 700;
+                    color: var(--blue-dark);
+                    vertical-align: top;
+                  "
+                >
+                  Saturday
+                </td>
+                <td style="padding: 0.85rem 1.2rem; white-space: nowrap">
+                  12:00 PM
+                </td>
+                <td style="padding: 0.85rem 1.2rem">Plug In-The-Jug Group</td>
+                <td style="padding: 0.85rem 1.2rem">
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Discussion</span
+                  >
+                </td>
+              </tr>
+              <tr style="background: #e8f0fb">
+                <td style="padding: 0.85rem 1.2rem; white-space: nowrap">
+                  8:00 PM
+                </td>
+                <td style="padding: 0.85rem 1.2rem">
+                  Fireside Meeting
+                  <span style="color: var(--gray); font-size: 0.83rem"
+                    >(AA Recovery Gp.)</span
+                  >
+                </td>
+                <td style="padding: 0.85rem 1.2rem">
+                  <span
+                    style="
+                      background: #dcfce7;
+                      color: #166534;
+                      padding: 0.2rem 0.6rem;
+                      border-radius: 100px;
+                      font-size: 0.78rem;
+                      font-weight: 600;
+                    "
+                    >Open / Discussion</span
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div
+          class="reveal"
+          style="
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            font-size: 0.82rem;
+          "
+        >
+          <span style="display: flex; align-items: center; gap: 0.4rem"
+            ><span
+              style="
+                background: #dcfce7;
+                color: #166534;
+                padding: 0.2rem 0.6rem;
+                border-radius: 100px;
+                font-weight: 600;
+              "
+              >Open / Discussion</span
+            >
+            Open to all</span
+          >
+          <span style="display: flex; align-items: center; gap: 0.4rem"
+            ><span
+              style="
+                background: #dbeafe;
+                color: #1e40af;
+                padding: 0.2rem 0.6rem;
+                border-radius: 100px;
+                font-weight: 600;
+              "
+              >Closed / Discussion</span
+            >
+            For AA members</span
+          >
+          <span style="display: flex; align-items: center; gap: 0.4rem"
+            ><span
+              style="
+                background: #fef9c3;
+                color: #854d0e;
+                padding: 0.2rem 0.6rem;
+                border-radius: 100px;
+                font-weight: 600;
+              "
+              >Book Study</span
+            >
+            Literature focus</span
+          >
+        </div>
+      </div>
+    </div>
+    <!-- FORM -->
+    <div class="paper" id="form">
+      <!-- Header -->
+      <div class="center">
+        <div class="title">APPLICATION FOR MEMBERSHIP</div>
+        <div>Paid Inc.</div>
+        <div>2720 E. Main St.</div>
+        <div>Lakeland, FL 33801</div>
+      </div>
+
+      <!-- Part 1 -->
+      <div>
+        <div class="section-title" style="font-size: 18px; font-style: bold">
+          Part I: Applicant's Personal Data:
+        </div>
+
+        <div class="line-row">
+          <span>Name:</span>
+          <input class="input long" type="text" />
+          <span class="right-label">Sobriety Date:</span>
+          <input class="input short" type="text" />
+        </div>
+
+        <div class="line-row">
+          <span>Address:</span>
+          <input class="input long" type="text" />
+          <span class="right-label">Home Ph:</span>
+          <input class="input short" type="text" />
+        </div>
+
+        <div class="line-row">
+          <span>City/State:</span>
+          <input class="input long" type="text" />
+          <span class="right-label">Wk Ph:</span>
+          <input class="input short" type="text" />
+        </div>
+
+        <div class="line-row" style="margin-top: 1">
+          <span>Whom to contact in an emergency:</span>
+        </div>
+
+        <div class="line-row">
+          <span>Name:</span>
+          <input class="input long" type="text" />
+          <span class="right-label">Phone #:</span>
+          <input class="input short" type="text" />
+        </div>
+      </div>
+
+      <!-- Part 2 -->
+      <div style="margin-top: 3rem">
+        <div class="section-title" style="font-size: 18px; font-style: bold">
+          Part II: Commitment to Active Member Status:
+        </div>
+
+        <p>
+          I certify that I have a minimum of 90 days continuous sobriety, and
+          that I am dedicated to it's continuance. If accepted for membership, I
+          agree to abide by and uphold the by-laws and rules of the 2720
+          Club/Paid Inc. I agree to hold confidential and respect the anonymity
+          of my fellow members.
+        </p>
+
+        <p>
+          I have enclosed my first payment. If membership is granted, in the
+          event of my resignation, for whatever reason, the Board of Directors
+          reserves the right to refuse to refund any unused portion of my
+          pre-paid dues. I agree to accept the Board's decision as final.
+        </p>
+
+        <p>
+          Should this application be rejected by the Board, my initial payment
+          will be refunded in full, and I shall have the right to reapply for
+          membership no sooner than 30 days following said rejection.
+        </p>
+
+        <div class="line-row signature">
+          <span>Signature:</span>
+          <input class="input long" type="text" />
+          <span class="right-label">Date</span>
+          <input class="input short" type="date" />
+        </div>
+      </div>
+
+      <!-- Part 3 -->
+      <div style="margin-top: 3rem">
+        <div class="section-title" style="font-size: 18px; font-style: bold">
+          Part III: Dues :
+        </div>
+
+        <div class="dues">
+          <span>Dues for</span>
+          <span>Monthly</span>
+          <span>6 Months</span>
+          <span>Yearly</span>
+        </div>
+
+        <div class="dues">
+          <span>Single</span>
+          <span>$10.00</span>
+          <span>$60.00</span>
+          <span>$120.00</span>
+        </div>
+
+        <p class="small" style="font-size: 14px; font-style: normal">
+          ***If you send in dues by mail make check payable to Paid Inc. and
+          send to PO Box 2221 Eaton Park, FL 33840. Or you can drop check or
+          cash in safe in envelope with your name and what month's dues you are
+          paying on the memo line.
+        </p>
+      </div>
+      <button id="downloadBtn" class="no-print">Download PDF</button>
+
+      <!-- <button onclick="downloadPDF()">Download PDF</button> -->
+    </div>
+
+    <div class="business-section">
+      <div class="business-title" style="font-size: 18px; font-style: bold">
+        MEMBERSHIP AND NATURE OF BUSINESS
+      </div>
+
+      <div class="business-text">
+        <!-- <span class="bullet">■</span> -->
+        The general purpose of this corporation is to carry the message of
+        Alcoholics Anonymous to those with the disease of Alcoholism; to
+        disseminate all the information thereto to the members; to provide and
+        maintain facilities for necessary group therapy required in the progress
+        of rehabilitation; but no facilities shall be provided for medical
+        treatment or lodging.
+      </div>
+    </div>
+
+    <!-- PHOTOS -->
+    <div id="about" class="photos-wrap">
+      <div class="photos-inner">
+        <p class="section-label reveal">Our Home</p>
+        <h2 class="section-title reveal">A Place for Everyone</h2>
+
+        <div class="photos-grid reveal">
+          <img
+            class="photo-main"
+            src="/mnt/user-data/uploads/c5e982fd-be5e-4bf9-a3a8-76c5eff0e2c6.jpeg"
+            alt="2720 Club building exterior"
+          />
+          <img
+            class="photo-side"
+            src="/mnt/user-data/uploads/bff11adf-9a84-4924-b00a-0b46686d1c45.jpeg"
+            alt="2720 Club sign"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="section-title">We'd Love to Hear From You</h2>
+      <p>Questions, RSVPs, or just want to say hello — drop us a line.</p>
+      <a class="contact-email" href="mailto:2720club@gmail.com"
+        >2720club@gmail.com</a
+      >
+
+      <div
+        style="
+          margin-top: 3rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1.5rem;
+        "
+      >
+        <div
+          style="
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+          "
+        >
+          📍 &nbsp;<strong>2720 E Main St, Lakeland, FL 33801</strong>
+        </div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3524.1!2d-81.9326!3d28.0395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88dd3e4d6b2f6f3f%3A0x1!2s2720+E+Main+St%2C+Lakeland%2C+FL+33801!5e0!3m2!1sen!2sus!4v1"
+          width="100%"
+          height="280"
+          style="border: 0; border-radius: 12px; max-width: 700px"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        >
+        </iframe>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <div class="location-bar">
+      <strong>2720 Club</strong> &nbsp;·&nbsp;
+      <a
+        href="https://maps.google.com/?q=2720+E+Main+St,+Lakeland,+FL+33801"
+        target="_blank"
+        style="color: inherit; text-decoration: underline"
+      >
+        2720 E Main St, Lakeland, FL 33801
+      </a>
+    </div>
+
+    <footer>&copy; 2720 Club. All rights reserved.</footer>
+
+    <script>
+      // Scroll reveal
+      const els = document.querySelectorAll(".reveal");
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+              setTimeout(() => e.target.classList.add("visible"), i * 80);
+              obs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+      els.forEach((el) => obs.observe(el));
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script>
+      function prepareForPDF(element) {
+        const clone = element.cloneNode(true);
+
+        // Replace inputs with text
+        const inputs = clone.querySelectorAll("input");
+        inputs.forEach((input) => {
+          const span = document.createElement("span");
+          span.className = input.className;
+          span.style.borderBottom = "1px solid black";
+          span.style.display = "inline-block";
+          span.style.minHeight = "16px";
+          span.style.fontFamily = "Courier New, monospace";
+          span.textContent = input.value || " ";
+
+          input.parentNode.replaceChild(span, input);
+        });
+
+        return clone;
+      }
+    </script>
+
+    <script>
+      function downloadPDF() {
+        const form = document.getElementById("form");
+
+        // Clone form (so original UI stays untouched)
+        const clone = form.cloneNode(true);
+
+        // Replace inputs with text
+        clone.querySelectorAll("input").forEach((input) => {
+          const text = document.createElement("span");
+          text.style.borderBottom = "1px solid black";
+          text.style.display = "inline-block";
+          text.style.minHeight = "16px";
+          text.style.fontFamily = "Courier New, monospace";
+          text.style.fontSize = "12px";
+
+          // width match
+          if (input.classList.contains("short")) {
+            text.style.width = "120px";
+          } else {
+            text.style.flex = "1";
+          }
+
+          text.textContent = input.value || " ";
+          input.replaceWith(text);
+        });
+
+        // Open new print window (THIS is the clean trick)
+        const printWindow = window.open("", "_blank");
+
+        printWindow.document.write(`
+    <html>
+      <head>
+        <title>Membership Form</title>
+        <style>
+          body {
+            font-family: "Courier New", monospace;
+            padding: 20px;
+          }
+
+          .paper {
+            width: 800px;
+            margin: auto;
+          }
+
+          .line-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 12px;
+          }
+
+          .right-label {
+            margin-left: 10px;
+          }
+
+          .dues {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+          }
+
+          p {
+            font-size: 12px;
+            line-height: 1.4;
+          }
+
+          .section-title {
+            font-weight: bold;
+            margin: 10px 0;
+          }
+
+          .center {
+            text-align: center;
+            margin-bottom: 20px;
+          }
+
+          .title {
+            font-weight: bold;
+            font-size: 14px;
+          }
+        </style>
+      </head>
+      <body>
+        ${clone.outerHTML}
+      </body>
+    </html>
+  `);
+
+        printWindow.document.close();
+
+        // Wait for content then print
+        printWindow.onload = function () {
+          printWindow.focus();
+          printWindow.print();
+          printWindow.close();
+        };
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+      const { jsPDF } = window.jspdf;
+
+      document
+        .getElementById("downloadBtn")
+        .addEventListener("click", async () => {
+          const form = document.getElementById("form");
+
+          // 🔥 Hide button before capture
+          const btn = document.getElementById("downloadBtn");
+          btn.style.display = "none";
+
+          const canvas = await html2canvas(form, {
+            scale: 2,
+            useCORS: true,
+          });
+
+          const imgData = canvas.toDataURL("image/png");
+
+          const pdf = new jsPDF({
+            orientation: "portrait",
+            unit: "px",
+            format: [canvas.width, canvas.height],
+          });
+
+          pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+          pdf.save("membership-form.pdf");
+
+          // 🔥 Show button again
+          btn.style.display = "inline-block";
+        });
+    </script>
+  </body>
+</html>
