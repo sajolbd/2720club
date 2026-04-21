@@ -352,16 +352,11 @@
         color: #854d0e;
       }
       .tag-legend {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
         font-size: 0.82rem;
         margin-top: 1.5rem;
       }
-      .tag-legend span {
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
+      .tag-legend p {
+        margin-bottom: 1rem;
       }
 
       .table-scroll {
@@ -910,7 +905,7 @@
                 <th>Day</th>
                 <th>Time</th>
                 <th>Group Name</th>
-                <th>Format</th>
+                <th>Type</th>
               </tr>
             </thead>
             <tbody>
@@ -925,7 +920,7 @@
                 </td>
                 <td class="time-cell">12:00 PM</td>
                 <td>Gratitude In Action Meeting</td>
-                <td><span class="tag tag-closed">Closed / Discussion</span></td>
+                <td><span class="tag tag-closed">Discussion</span></td>
               </tr>
               <tr style="background: #e8f0fb">
                 <td class="time-cell" style="border-bottom: 2px solid #d0dff5">
@@ -938,7 +933,7 @@
                   >
                 </td>
                 <td style="border-bottom: 2px solid #d0dff5">
-                  <span class="tag tag-open">Open / Speaker</span>
+                  <span class="tag tag-open">Speaker</span>
                 </td>
               </tr>
               <!-- MONDAY -->
@@ -952,12 +947,12 @@
                 </td>
                 <td class="time-cell">7:00 AM</td>
                 <td>Early Bird Group</td>
-                <td><span class="tag tag-open">Open / Discussion</span></td>
+                <td><span class="tag tag-open">Discussion</span></td>
               </tr>
               <tr>
                 <td class="time-cell">12:00 PM</td>
                 <td>Plug In The Jug Group</td>
-                <td><span class="tag tag-open">Open / Discussion</span></td>
+                <td><span class="tag tag-open">Discussion</span></td>
               </tr>
               <tr>
                 <td class="time-cell">5:30 PM</td>
@@ -967,12 +962,12 @@
                     >(AA Recovery Gp.)</span
                   >
                 </td>
-                <td><span class="tag tag-open">Open / Discussion</span></td>
+                <td><span class="tag tag-open">Discussion</span></td>
               </tr>
               <tr>
                 <td class="time-cell">7:00 PM</td>
                 <td>Mon. Night Men's Group</td>
-                <td><span class="tag tag-closed">Closed / Discussion</span></td>
+                <td><span class="tag tag-closed">Men Only</span></td>
               </tr>
               <tr>
                 <td class="time-cell" style="border-bottom: 2px solid #e5e7eb">
@@ -982,7 +977,7 @@
                   Mon. Night Ladies Group
                 </td>
                 <td style="border-bottom: 2px solid #e5e7eb">
-                  <span class="tag tag-open">Open / Discussion</span>
+                  <span class="tag tag-open">Women Only</span>
                 </td>
               </tr>
               <!-- TUESDAY -->
@@ -996,12 +991,12 @@
                 </td>
                 <td class="time-cell">7:00 AM</td>
                 <td>Early Bird Group</td>
-                <td><span class="tag tag-open">Open / Discussion</span></td>
+                <td><span class="tag tag-open">Discussion</span></td>
               </tr>
               <tr style="background: #f9fafb">
                 <td class="time-cell">12:00 PM</td>
                 <td>Plug In The Jug Group</td>
-                <td><span class="tag tag-open">Open / Discussion</span></td>
+                <td><span class="tag tag-open">Discussion</span></td>
               </tr>
               <tr style="background: #f9fafb">
                 <td class="time-cell">5:30 PM</td>
@@ -1011,7 +1006,7 @@
                     >(AA Recovery Gp.)</span
                   >
                 </td>
-                <td><span class="tag tag-open">Open / Discussion</span></td>
+                <td><span class="tag tag-open">Discussion</span></td>
               </tr>
               <tr style="background: #f9fafb">
                 <td class="time-cell" style="border-bottom: 2px solid #e5e7eb">
@@ -1021,7 +1016,7 @@
                   Big Book Study Group
                 </td>
                 <td style="border-bottom: 2px solid #e5e7eb">
-                  <span class="tag tag-book">Book Study</span>
+                  <span class="tag tag-book">Literature Study</span>
                 </td>
               </tr>
               <!-- WEDNESDAY -->
@@ -1035,12 +1030,12 @@
                 </td>
                 <td class="time-cell">7:00 AM</td>
                 <td>Early Bird Group</td>
-                <td><span class="tag tag-open">Open / Discussion</span></td>
+                <td><span class="tag tag-open">Discussion</span></td>
               </tr>
               <tr>
                 <td class="time-cell">12:00 PM</td>
                 <td>Plug In The Jug Group</td>
-                <td><span class="tag tag-open">Open / Discussion</span></td>
+                <td><span class="tag tag-open">Discussion</span></td>
               </tr>
               <tr>
                 <td class="time-cell">5:30 PM</td>
@@ -1050,7 +1045,7 @@
                     >(AA Recovery Gp.)</span
                   >
                 </td>
-                <td><span class="tag tag-open">Open / Discussion</span></td>
+                <td><span class="tag tag-open">Discussion</span></td>
               </tr>
 
               
@@ -1062,7 +1057,7 @@
                   12 &amp; 12 Book Study Group
                 </td>
                 <td style="border-bottom: 2px solid #e5e7eb">
-                  <span class="tag tag-book">Book Study</span>
+                  <span class="tag tag-book">Literature Study</span>
                 </td>
               </tr>
               <!-- THURSDAY -->
@@ -1076,12 +1071,12 @@
                 </td>
                 <td class="time-cell">7:00 AM</td>
                 <td>Early Bird Group</td>
-                <td><span class="tag tag-open">Open / Discussion</span></td>
+                <td><span class="tag tag-open">Discussion</span></td>
               </tr>
               <tr style="background: #f9fafb">
                 <td class="time-cell">12:00 PM</td>
                 <td>Plug In The Jug Group</td>
-                <td><span class="tag tag-open">Open / Discussion</span></td>
+                <td><span class="tag tag-open">Discussion</span></td>
               </tr>
               <tr style="background: #f9fafb">
                 <td class="time-cell">5:30 PM</td>
@@ -1091,7 +1086,7 @@
                     >(AA Recovery Gp.)</span
                   >
                 </td>
-                <td><span class="tag tag-open">Open / Discussion</span></td>
+                <td><span class="tag tag-open">Discussion</span></td>
               </tr>
                 <tr style="background: #f9fafb">
                 <td class="time-cell">7:00 PM</td>
@@ -1099,7 +1094,7 @@
                   Al-Anon meeting
                   
                 </td>
-                <td><span class="tag tag-open">Open / Discussion</span></td>
+                <td><span class="tag tag-open">Discussion</span></td>
               </tr>
               <tr style="background: #f9fafb">
                 <td class="time-cell" style="border-bottom: 2px solid #e5e7eb">
@@ -1112,7 +1107,7 @@
                   >
                 </td>
                 <td style="border-bottom: 2px solid #e5e7eb">
-                  <span class="tag tag-closed">Closed / Discussion</span>
+                  <span class="tag tag-closed">Discussion</span>
                 </td>
               </tr>
               <!-- FRIDAY -->
@@ -1126,12 +1121,12 @@
                 </td>
                 <td class="time-cell">7:00 AM</td>
                 <td>Early Bird Group</td>
-                <td><span class="tag tag-open">Open / Discussion</span></td>
+                <td><span class="tag tag-open">Discussion</span></td>
               </tr>
               <tr>
                 <td class="time-cell">12:00 PM</td>
                 <td>Plug In The Jug Group</td>
-                <td><span class="tag tag-open">Open / Discussion</span></td>
+                <td><span class="tag tag-open">Discussion</span></td>
               </tr>
               <tr>
                 <td class="time-cell" style="border-bottom: 2px solid #e5e7eb">
@@ -1144,7 +1139,7 @@
                   >
                 </td>
                 <td style="border-bottom: 2px solid #e5e7eb">
-                  <span class="tag tag-open">Open / Discussion</span>
+                  <span class="tag tag-open">Discussion</span>
                 </td>
               </tr>
               <!-- SATURDAY -->
@@ -1152,7 +1147,7 @@
                 <td class="day-cell" rowspan="2">Saturday</td>
                 <td class="time-cell">12:00 PM</td>
                 <td>Plug In The Jug Group</td>
-                <td><span class="tag tag-open">Open / Discussion</span></td>
+                <td><span class="tag tag-open">Discussion</span></td>
               </tr>
               <tr style="background: #e8f0fb">
                 <td class="time-cell">8:00 PM</td>
@@ -1162,24 +1157,15 @@
                     >(AA Recovery Gp.)</span
                   >
                 </td>
-                <td><span class="tag tag-open">Open / Discussion</span></td>
+                <td><span class="tag tag-open">Discussion</span></td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <div class="reveal tag-legend">
-          <span
-            ><span class="tag tag-open">Open / Discussion</span> Open to
-            all</span
-          >
-          <span
-            ><span class="tag tag-closed">Closed / Discussion</span> For AA
-            members</span
-          >
-          <span
-            ><span class="tag tag-book">Book Study</span> Literature focus</span
-          >
+          <p><strong>• Open meetings</strong> are available to anyone interested in Alcoholics Anonymous's program of recovery from alcoholism. Nonalcoholics may attend open meetings as observers.</p>
+          <p><strong>• Closed meetings</strong> are for A.A. members only or for those who have a drinking problem and "have a desire to stop drinking."</p>
         </div>
       </div>
     </div>
